@@ -1,47 +1,55 @@
 /**
- * Class A with a static variable 'x'
+ * Class A with a method 'test'
  */
 class A {
-    // Static variable 'x' with an initial value
-    static x: number = 10;
+    test() {
+        console.log("From class A test() method");
+    }
 }
-
-// Access and log the static variable 'x' of class A
-console.log(A.x);
-
 
 /**
- * Class B with a static variable 'x', an instance variable 'x', and static/instance methods
+ * Class B extending class A with an additional method 'demo'
  */
-class B {
-    // Static variable 'x' with an initial value
-    static x: number = 10;
-
-    // Instance variable 'x' with an initial value
-    x: number = 20;
-
-    // Static method 'test' for class B
-    static test() {
-        console.log("From class B static test() method");
-    }
-
-    // Instance method 'test' for class B
-    test() {
-        console.log("From class B instance test() method");
+class B extends A {
+    demo() {
+        console.log("From class B demo() method");
     }
 }
-
-// Access and log the static variable 'x' of class B
-console.log(B.x);
-
-// Call the static method 'test' of class B
-B.test();
 
 // Instantiate an object of class B
 let b = new B();
 
-// Access and log the instance variable 'x' of object 'b'
-console.log(b.x);
-
-// Call the instance method 'test' of object 'b'
+// Call the 'test' and 'demo' methods of object 'b'
 b.test();
+b.demo();
+
+
+/**
+ * Class C extending class A and overriding the 'test' method
+ */
+class C extends A {
+    test() {
+        console.log("From class C test() method");
+    }
+}
+
+// Instantiate an object of class C
+let c = new C();
+
+// Call the overridden 'test' method of object 'c'
+c.test();
+
+
+/**
+ * Class D extending class B
+ */
+class D extends B {
+
+}
+
+// Instantiate an object of class D
+let d = new D();
+
+// Call the 'test' and 'demo' methods inherited from class B on object 'd'
+d.test();
+d.demo();
